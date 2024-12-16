@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "paths": {
+      "@/*": [
+        "./*"
+      ]
+    }
+  },
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    ".expo/types/**/*.ts",
+    "expo-env.d.ts",
+    "src/app/screens/Login.jsx",
+    "src/app/screens/Home.jsx",
+    "src/app/index.jsx"
+  ],
+  "extends": "expo/tsconfig.base"
+}
