@@ -1,0 +1,43 @@
+# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
+# More GitHub Actions for Azure: https://github.com/Azure/actions
+
+name: Deploy Node.js app to Azure
+
+on:
+  push:
+    branches:
+      - main  # Ajuste para a branch que deseja monitorar
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Checkout do código
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    # Configuração do Node.js
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16' # Ajuste para a versão do Node.js que você usa
+
+    # Instalar dependências
+    - name: Install dependencies
+      working-directory: ./server  # Define a pasta onde está o package.json
+      run: npm install
+
+    # Construir (se necessário)
+    - name: Build project
+      working-directory: ./server  # Define a pasta onde está o código
+      run: npm run build
+
+    # Deploy para o Azure App Service
+    - name: Deploy to Azure Web App
+      uses: azure/webapps-deploy@v2
+      with:
+        app-name: 'meu-app-nodejs' # Nome do App Service no Azure
+        slot-name: 'production'
+        publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+        package: ./server  # Define a pasta do código a ser enviado
