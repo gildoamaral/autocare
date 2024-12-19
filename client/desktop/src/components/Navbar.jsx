@@ -1,12 +1,13 @@
+import { Link } from 'react-router-dom';
 
 function Navbar() {
   return (
     <nav className="app-navbar">
       <ul>
-        <li><a href="/app/motoristas">Motoristas</a></li>
-        <li><a href="/app/veiculos">Veículos</a></li>
-        <li><a href="/app/editar">Perfil do Usuário</a></li>
-        {/* <li><a href="/app/settings">Configurações</a></li>   */}
+        <li><Link to="/app/motoristas">Motoristas</Link></li>
+        <li><Link to="/app/veiculos">Veículos</Link></li>
+        <li><Link to="/app/editar">Perfil do Usuário</Link></li>
+        {/* <li><Link to="/app/settings">Configurações</Link></li> */}
       </ul>
     </nav>
   );

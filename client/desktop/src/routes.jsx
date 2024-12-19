@@ -16,7 +16,7 @@ function Rotas() {
         <Route path="/" element={<Login />} />
         <Route path="/cadastro" element={<Cadastro />} />
 
-        <Route path="/app" element={<App />} >
+        <Route path="app" element={<App />} >
           <Route path="veiculos" element={<Veiculos />} />
           <Route path='editar' element={<Editar />}/>
           <Route path='motoristas' element={<Motoristas />}/>
